@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // viewModel
-        viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+        viewModel = ViewModelProvider(this)[PokemonViewModel::class.java]
 
         // setup recycler view
         binding.recyclerView.adapter = PokemonRecyclerViewAdapter(this)
