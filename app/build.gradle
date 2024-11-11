@@ -1,9 +1,10 @@
 plugins {
-    id 'com.google.devtools.ksp' version '2.0.21-1.0.27' apply false
     id 'com.android.application'
     id 'kotlin-android'
+    //id 'com.google.devtools.ksp' version '2.0.21-1.0.27' apply false
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+
 }
 
 
@@ -39,7 +40,7 @@ android {
 }
 
 dependencies {
-    apply plugin: 'com.google.devtools.ksp'
+    //apply plugin: 'com.google.devtools.ksp'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
@@ -55,9 +56,9 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    ksp "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
-    ksp 'androidx.hilt:hilt-compiler:1.2.0'
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    //implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    //kapt 'androidx.hilt:hilt-compiler:1.2.0'
 
     // coroutines
     def coroutines_version = '1.4.1'
@@ -76,7 +77,7 @@ dependencies {
     // Room
     def room_version = '2.6.1'
     implementation "androidx.room:room-runtime:$room_version"
-    ksp "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.8.3"
@@ -84,9 +85,12 @@ dependencies {
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    ksp 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     //sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
+}
+kapt {
+    correctErrorTypes true
 }
