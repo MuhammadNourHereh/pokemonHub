@@ -35,7 +35,7 @@ class PokemonViewModel @Inject constructor(private val repository: Repository) :
                     val url = it.url
                     val pokemonIndex = url.split("/".toRegex())
                     it.url =
-                        "https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex[pokemonIndex.size - 2]}.png"
+                        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex[pokemonIndex.size - 2]}.png"
                     it
                 }
 
